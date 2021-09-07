@@ -1,0 +1,49 @@
+﻿@model Tarefa
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h3>Sua última tarefa cadastrada:</h3>
+
+<p>
+    <a asp-action="Create">Crie uma nova</a>
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                Título
+            </th>
+            <th>
+                Descrição
+            </th>
+            <th>
+                Previsão Horas
+            </th>
+            <th>
+                Horas Utilizadas
+            </th>
+            <th>
+                <a asp-controller="Home" asp-action="List">Clique pra ver todas as tasks</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.PrevisaoHoras)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.HorasUtilizadas)
+            </td>
+        </tr>
+    </tbody>
+</table>

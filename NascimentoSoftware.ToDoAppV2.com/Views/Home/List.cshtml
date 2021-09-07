@@ -1,0 +1,53 @@
+﻿@model IEnumerable<NascimentoSoftware.ToDoAppV2.com.Models.Tarefa>
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>Todas as tarefas</h1>
+
+<p>
+    <a asp-action="Create">Adicionar uma task</a>
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                Título
+            </th>
+            <th>
+                Descrição
+            </th>
+            <th>
+                Previsão de horas
+            </th>
+            <th>
+                Horas utilizadas
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrevisaoHoras)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HorasUtilizadas)
+            </td>
+            <td>
+                <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
